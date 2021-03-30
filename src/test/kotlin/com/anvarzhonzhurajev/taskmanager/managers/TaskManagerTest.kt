@@ -69,10 +69,10 @@ class TaskManagerTest : TestCase() {
     fun testKillAll() {
         // Fill TaskManager with some tasks within capacity
         val taskManager = TaskManager(4)
-        var newTaskId = taskManager.add(1, LoudProcess())
-        newTaskId = taskManager.add(2, LoudProcess())
-        newTaskId = taskManager.add(1, QuietProcess())
-        newTaskId = taskManager.add(2, QuietProcess())
+        taskManager.add(1, LoudProcess())
+        taskManager.add(2, LoudProcess())
+        taskManager.add(1, QuietProcess())
+        taskManager.add(2, QuietProcess())
         assertEquals("1,2,3,4", taskManager.taskList.map { it.id }.joinToString(","))
         assertEquals("1,2,1,2", taskManager.taskList.map { it.priority }.joinToString(","))
 
